@@ -140,6 +140,23 @@ function addEvents() {
     document.querySelector("table").addEventListener("click", clickme);
 };
 
+function debugCallback(response){
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend', 'GeoJSON data: ' + JSON.stringify(myData))
+};
+
+function debugAjax(){
+	
+	var myData;
+	
+	fetch("data/MegaCities.csv")
+		.then(function(response){
+			debugCallback(response);
+		})
+
+	document.querySelector("#mydiv").insertAdjacentHTML('beforeend' '<br>GeoJSON data:<br>' + JSON.stringify(myData))
+};
+
+document.querySelector("#mydiv").insertAdjacentHTML('beforeend', 'GeoJSON data: ' + JSON.stringify(myData))
 
 
 //call the initialize function when the window has loaded
